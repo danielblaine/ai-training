@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React + TS</title>
+    <style>
+      .nav {display:flex;justify-content:space-between;align-items:center;position:relative;}
+      .menu {display:flex;gap:2rem;margin:0;padding:0;list-style:none;}
+      @media (max-width:768px){
+        .menu{
+          flex-direction:column;
+          position:absolute;
+          top:64px;
+          left:0;
+          width:100%;
+          background:#fff;
+          transform:translateY(-150%);
+          transition:transform .3s ease;
+          opacity:0;
+          visibility:hidden;
+        }
+        .menu.open{
+          transform:translateY(0);
+          opacity:1;
+          visibility:visible;
+        }
+      }
+    </style>
+  </head>
+  <body style="display:flex;flex-direction:column;min-height:100vh;">
+    <nav class="nav">
+      <button class="hamburger" id="menuBtn">Menu</button>
+      <ul class="menu" id="menu">
+        <li>Home</li><li>About</li><li>Contact</li>
+      </ul>
+    </nav>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
